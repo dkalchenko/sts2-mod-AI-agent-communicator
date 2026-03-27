@@ -1,9 +1,15 @@
-# ExampleMod
+# Sts2ModAIAgentCommunicator
 
-Example mod for Slay the Spire 2!
+A Slay the Spire 2 mod that provides an interface for external AI agents to communicate with the game via named pipes.
 
----
+## Features
 
+- **Named Pipe Communication**: Connects to an external agent using a named pipe (`live-pipe`).
+- **Combat Event Hooking**: Automatically notifies the agent about game events such as combat starting and player turn starting.
+- **Remote Actions**: Supports external requests to:
+  - Retrieve the player's current hand.
+  - Play cards from the hand targeting specific creatures.
+- **Asynchronous Pipeline**: Uses a non-blocking communication pipeline for seamless gameplay.
 
 ## Development Setup
 
@@ -22,7 +28,7 @@ Before you begin, ensure you have:
 #### 1. Clone the Repository
 ```bash
 git clone https://github.com/dkalchenko/sts2_mod_template
-cd sts2_example_mod
+cd sts2_mod_template
 ```
 
 #### 2. Configure Your Paths
@@ -53,38 +59,27 @@ Open `local.props` in any text editor and update with **your** paths:
 ```
 ---
 
-#### 4. Edit manifest data in `ExampleMod.csproj` (Optional)
+#### 4. Edit manifest data in `Sts2ModAIAgentCommunicator.csproj` (Optional)
 
-Open `ExampleMod.csproj` in any text editor and update with requred data:
+Open `Sts2ModAIAgentCommunicator.csproj` and update metadata if needed:
 ```xml
 <!-- ↓ MOD METADATA - Change these! -->
-<ModName>ExampleMod</ModName>
-<ModDisplayName>Example Mod</ModDisplayName>
-<ModAuthor>Anonim</ModAuthor>
+<ModName>Sts2ModAIAgentCommunicator</ModName>
+<ModDisplayName>AI agent communicator</ModDisplayName>
+<ModAuthor>Your Name</ModAuthor>
 <ModVersion>1.0.0</ModVersion>
-<HasPack>true</HasPack>
-<HasDll>true</HasDll>
-<AffectsGameplay>true</AffectsGameplay>
 ```
 ---
 
 ### Building the Mod
 
-#### Visual Studio
-Open ExampleMod.csproj as Visual Studio Project
+#### Visual Studio / Rider
+Open `Sts2ModAIAgentCommunicator.csproj`
 
 Press **Ctrl+Shift+B** or click **Build → Build Solution**
 
-
 The mod will **automatically** install to:
-
-Slay the Spire 2/mods/ExampleMod/  
-├── ExampleMod.dll  
-└── ExampleMod.pck  
-
-
-can be changed in ExampleMod.csproj 
-
+`Slay the Spire 2/mods/Sts2ModAIAgentCommunicator/`
 
 ---
 
@@ -99,13 +94,9 @@ can be changed in ExampleMod.csproj
 - Copy the full path and paste into `STS2GamePath`
 
 ### Build succeeds but mod doesn't load
-- Check that both `ExampleMod.dll` **AND** `ExampleMod.pck` exist in `mods/ExampleMod/`
+- Check that `Sts2ModAIAgentCommunicator.dll` exists in `mods/Sts2ModAIAgentCommunicator/`
 - Check the game's log file for errors: `%AppData%\Roaming\SlayTheSpire2\Player.log`
 
 ### Changes don't appear in game
 - Rebuild the mod (**Ctrl+Shift+B**) or with Rebuild Solution
 - Restart Slay the Spire 2
-
----
-Credits:
-- [Origin repository](https://github.com/lamali292/sts2_example_mod)
