@@ -1,4 +1,4 @@
-﻿namespace Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO.GameActions;
+﻿namespace Sts2ModAIAgentCommunicator.Core.Agent.DTO.GameActions;
 
 public class GameActionCombatStartResponse: GameActionClientResponseBase
 {

@@ -3,14 +3,14 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Logging;
-using Sts2ModAIAgentCommunicator.Core.AgentCommunicator;
-using Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO.Agent;
-using Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO.Pile;
-using Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO.Shared;
+using Sts2ModAIAgentCommunicator.Core.Agent;
+using Sts2ModAIAgentCommunicator.Core.Agent.DTO.Agent;
+using Sts2ModAIAgentCommunicator.Core.Agent.DTO.Pile;
+using Sts2ModAIAgentCommunicator.Core.Agent.DTO.Shared;
 
 namespace Sts2ModAIAgentCommunicator.Core.Handlers.Pile;
 
-public class GetPlayerHandPileHandler: IAgent2ClientHandlerBase
+public class GetPlayerHandPileHandler: IAgent2ClientHandler
 {
     public async Task HandleAsync(string message, CancellationToken cancellationToken)
     {
@@ -62,8 +62,6 @@ public class GetPlayerHandPileHandler: IAgent2ClientHandlerBase
             })
         };
         
-        var communicator = AgentCommunicatorFactory.CreateCommunicator();
-
-        await communicator.SendMessageAsync(response);
+        AgentCommunicator.Instance.SendMessage(response);
     }
 }

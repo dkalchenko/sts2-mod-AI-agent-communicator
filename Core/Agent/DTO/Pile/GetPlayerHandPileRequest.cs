@@ -1,4 +1,4 @@
-﻿namespace Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO.Agent;
+﻿namespace Sts2ModAIAgentCommunicator.Core.Agent.DTO.Agent;
 
 public class GetPlayerHandPileRequest: AgentRequestBase
 {

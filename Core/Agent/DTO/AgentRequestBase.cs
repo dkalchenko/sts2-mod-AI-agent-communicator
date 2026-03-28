@@ -1,4 +1,4 @@
-﻿namespace Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO;
+﻿namespace Sts2ModAIAgentCommunicator.Core.Agent.DTO;
 
 public class AgentRequestBase: IAgentRequest
 {

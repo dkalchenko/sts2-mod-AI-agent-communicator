@@ -2,9 +2,9 @@
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Runs;
-using Sts2ModAIAgentCommunicator.Core.AgentCommunicator;
-using Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO;
-using Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO.GameActions;
+using Sts2ModAIAgentCommunicator.Core.Agent;
+using Sts2ModAIAgentCommunicator.Core.Agent.DTO;
+using Sts2ModAIAgentCommunicator.Core.Agent.DTO.GameActions;
 
 namespace Sts2ModAIAgentCommunicator.Core.Handlers.GameActions;
 
@@ -24,7 +24,7 @@ public static class GameActionBeforeCombatStartHandler
             CombatType = combatState.Encounter!.RoomType.ToString()
         };
         
-        _ = SendData2Agent(message);
+        AgentCommunicator.Instance.SendMessage(message);
     }
 
     private static CombatCreature CreateCombatCreature(Creature creature)
@@ -39,12 +39,5 @@ public static class GameActionBeforeCombatStartHandler
             Pets = creature.Pets.Select(CreateCombatCreature),
             NetId = creature.Player?.NetId
         };
-    }
-
-    private static async Task SendData2Agent(IGameActionClientResponse response)
-    {
-        var communicator = AgentCommunicatorFactory.CreateCommunicator();
-        
-        await communicator.SendMessageAsync(response);
     }
 }

@@ -1,7 +1,8 @@
 ﻿using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
-using Sts2ModAIAgentCommunicator.Core.AgentCommunicator;
+using Sts2ModAIAgentCommunicator.Core.Agent;
+using Sts2ModAIAgentCommunicator.Core.Agent;
 
 namespace Sts2ModAIAgentCommunicator;
 
@@ -17,8 +18,7 @@ public class ModEntrypoint
     
     private static async Task PipelineInitializeAsync()
     {
-        var communicator = AgentCommunicatorFactory.CreateCommunicator();
-        await communicator.InitializeAsync();
+        await AgentCommunicator.Instance.InitializeAsync();
     }
     
     private static void ResultHandler(Task task)

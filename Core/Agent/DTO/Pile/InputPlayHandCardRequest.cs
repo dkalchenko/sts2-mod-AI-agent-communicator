@@ -1,4 +1,4 @@
-﻿namespace Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO.Pile;
+﻿namespace Sts2ModAIAgentCommunicator.Core.Agent.DTO.Pile;
 
 public class InputPlayHandCardRequest: AgentRequestBase
 {

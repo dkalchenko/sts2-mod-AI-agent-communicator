@@ -1,6 +1,6 @@
-﻿using Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO.Shared;
+﻿using Sts2ModAIAgentCommunicator.Core.Agent.DTO.Shared;
 
-namespace Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO.Pile;
+namespace Sts2ModAIAgentCommunicator.Core.Agent.DTO.Pile;
 
 public class GetPlayerHandPileResponse : ClientResponseBase
 {

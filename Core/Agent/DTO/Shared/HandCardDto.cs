@@ -1,4 +1,4 @@
-﻿namespace Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO.Shared;
+﻿namespace Sts2ModAIAgentCommunicator.Core.Agent.DTO.Shared;
 
 public class HandCardDto
 {

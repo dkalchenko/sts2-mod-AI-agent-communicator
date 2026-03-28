@@ -1,8 +1,8 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Players;
-using Sts2ModAIAgentCommunicator.Core.AgentCommunicator;
-using Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO;
-using Sts2ModAIAgentCommunicator.Core.AgentCommunicator.DTO.GameActions;
+using MegaCrit.Sts2.Core.Logging;
+using Sts2ModAIAgentCommunicator.Core.Agent;
+using Sts2ModAIAgentCommunicator.Core.Agent.DTO.GameActions;
 
 namespace Sts2ModAIAgentCommunicator.Core.Handlers.GameActions;
 
@@ -17,13 +17,6 @@ public static class GameActionAfterPlayerTurnStartHandler
             NetId = player.NetId
         };
         
-        _ = SendData2Agent(message);
-    }
-
-    private static async Task SendData2Agent(IGameActionClientResponse response)
-    {
-        var communicator = AgentCommunicatorFactory.CreateCommunicator();
-        
-        await communicator.SendMessageAsync(response);
+        AgentCommunicator.Instance.SendMessage(message);
     }
 }
